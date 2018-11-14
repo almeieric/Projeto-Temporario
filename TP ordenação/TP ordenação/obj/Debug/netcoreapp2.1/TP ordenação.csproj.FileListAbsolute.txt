@@ -1,0 +1,21 @@
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.deps.json
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.runtimeconfig.json
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.runtimeconfig.dev.json
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.dll
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.pdb
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.csproj.CoreCompileInputs.cache
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.AssemblyInfoInputs.cache
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.AssemblyInfo.cs
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.dll
+C:\Users\eric\Desktop\Nova pasta\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.pdb
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.deps.json
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.runtimeconfig.json
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.runtimeconfig.dev.json
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.dll
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\bin\Debug\netcoreapp2.1\TP ordenação.pdb
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.csprojAssemblyReference.cache
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.csproj.CoreCompileInputs.cache
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.AssemblyInfoInputs.cache
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.AssemblyInfo.cs
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.dll
+C:\Users\eric\Desktop\UNA\TP ordenação\TP ordenação\obj\Debug\netcoreapp2.1\TP ordenação.pdb
