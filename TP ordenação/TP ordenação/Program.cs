@@ -16,18 +16,18 @@ class TPordenação
         for (int i = 0; i <= vetor1.Length - 1; i++)//este for ira preencher o vetor de forma crescente
         {
            
-            vetor1[i] = i+1;
+            vetor1[i] = i+ 1 ;
 
         }
         for (int i = vetor2.Length - 1; i >= 1; i--)//este for ira preencher o vetor de forma decrescente
         {
-            vetor2[i] = i + 1;
+            vetor2[i] = i+ 1;
 
         }
         
         for (int i = 0; i <= vetor3.Length - 1; i++)//este for ira preencher o vetor com numeros randomicos
         {
-            vetor3[i] = RandomNumber(0, 100000);
+            vetor3[i] = RandomNumber(0, 10000);
 
         }
     }
@@ -36,82 +36,132 @@ class TPordenação
     public static void Main()
     {
         
-        int[] vetor1 = new int[100000];
-        int[] vetor2 = new int[100000];
-        int[] vetor3 = new int[100000];
-
-
+        int[] vetor1;
+        int[] vetor2;
+        int[] vetor3;
         
-        Preencher(vetor1, vetor2, vetor3);
-                
+        bool sair = false;
+        do
+        {
+            Console.Write("Contagem de tempo de ordenação\n" +
+            "Menu [1] = BubbleSort\n" +
+            "Menu [2] = InsertionSort\n" +
+            "Menu [3] = SelectionSort\n" +
+            "Menu [4] = MergeSort\n" +
+            "Menu [5] = QuickSort\n" +
+            "Insira o numero para o menu:\n");
+            Stopwatch timer = new Stopwatch();// O comando Stopwatch conta o tempo que o programa levou para ler um metodo
 
-        
+            bool bubble = false;
+            bool insertion = false;
+            bool selection = false;
+            bool merge = false;
+            bool quick = false;
 
-        Stopwatch timer = new Stopwatch();// O comando Stopwatch conta o tempo que o programa levou para ler um metodo
+            var menu = Console.ReadKey();
+            Console.WriteLine("\n");
+            
+            if (bubble = menu.KeyChar == '1')
+            {
+                vetor1 = new int[100000];
+                vetor2 = new int[100000];
+                vetor3 = new int[100000];
+                Preencher(vetor1, vetor2, vetor3);
+                                                                                    
+                timer.Start();//o comando Start começa a ler o tempo do comando
+                bubbleSort(vetor1);
+                bubbleSort(vetor2);
+                bubbleSort(vetor3);
 
-        timer.Start();//o comando Start começa a ler o tempo do comando
-        bubbleSort(vetor1);
-        bubbleSort(vetor2);
-        bubbleSort(vetor3);
-      
-        timer.Stop();//O comando Stop indica onde para de ler o tempo 
-
-
-        TimeSpan tempoBubble = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
-
-
-        timer.Reset();//reseta o contador
-
-        Preencher(vetor1, vetor2, vetor3);
-
-        timer.Start();
-        InsertionSort(vetor1);
-        InsertionSort(vetor2);
-        InsertionSort(vetor3);
-        timer.Stop();
-        TimeSpan tempoInsertion = timer.Elapsed;
-
-        timer.Reset();
-
-        Preencher(vetor1, vetor2, vetor3);
-
-        timer.Start();
-        SelectionSort(vetor1);
-        SelectionSort(vetor2);
-        SelectionSort(vetor3);
-        timer.Stop();
-        TimeSpan tempoSelection = timer.Elapsed;
-
-        timer.Reset();//reseta o contador
-
-        Preencher(vetor1, vetor2, vetor3);
-
-        timer.Start();
-        MergeSort(vetor1, vetor1[0], vetor1[99999]);
-        MergeSort(vetor2, vetor2[99999], vetor2[0]);
-        MergeSort(vetor3, vetor1[0], vetor1[99999]);
-        timer.Stop();
-
-        TimeSpan tempoMerge = timer.Elapsed;
-        timer.Reset();//reseta o contador
+                timer.Stop();//O comando Stop indica onde para de ler o tempo 
 
 
-        Preencher(vetor1, vetor2, vetor3);
+                TimeSpan tempoBubble = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
+                Console.WriteLine("\nO tempo do Bubble Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoBubble.Minutes, tempoBubble.Seconds, tempoBubble.Milliseconds);
 
-        timer.Start();
-        QuickSort(vetor1, vetor1[0], vetor1[99999]);
-        QuickSort(vetor2, vetor2[99999], vetor2[0]);
-        QuickSort(vetor3, vetor1[0], vetor1[99999]);
-        timer.Stop();
+                timer.Reset();//reseta o contador
+            }
+            else if (insertion = menu.KeyChar == '2')
+            {
+                vetor1 = new int[100000];
+                vetor2 = new int[100000];
+                vetor3 = new int[100000];
+                Preencher(vetor1, vetor2, vetor3);
 
-        TimeSpan tempoQuick = timer.Elapsed;
+                timer.Start();
+                InsertionSort(vetor1);
+                InsertionSort(vetor2);
+                InsertionSort(vetor3);
+                timer.Stop();
+                TimeSpan tempoInsertion = timer.Elapsed;
+                Console.WriteLine("O tempo do Insertion Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoInsertion.Minutes, tempoInsertion.Seconds, tempoInsertion.Milliseconds);
 
-        Console.WriteLine("\nO tempo do Bubble Sort foi:    " + tempoBubble);
-        Console.WriteLine("O tempo do Insertion Sort foi: " + tempoInsertion);
-        Console.WriteLine("O tempo do Selection Sort foi: " + tempoSelection);
-        Console.WriteLine("O tempo do Merge Sort foi:     " + tempoMerge);
-        Console.WriteLine("O tempo do Quick Sort foi:     " + tempoQuick);
+                timer.Reset();
+            }
+            else if (selection = menu.KeyChar == '3')
+            {
 
+                vetor1 = new int[100000];
+                vetor2 = new int[100000];
+                vetor3 = new int[100000];
+                Preencher(vetor1, vetor2, vetor3);
+
+                timer.Start();
+                SelectionSort(vetor1);
+                SelectionSort(vetor2);
+                SelectionSort(vetor3);
+                timer.Stop();
+                TimeSpan tempoSelection = timer.Elapsed;
+                Console.WriteLine("O tempo do Selection Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoSelection.Minutes , tempoSelection.Seconds, tempoSelection.Milliseconds);
+
+                timer.Reset();//reseta o contador
+            }
+            else if (merge = menu.KeyChar == '4')
+            {
+
+                vetor1 = new int[100000];
+                vetor2 = new int[100000];
+                vetor3 = new int[100000];
+                Preencher(vetor1, vetor2, vetor3);
+
+                timer.Start();
+                MergeSort(vetor1, vetor1[0], (vetor1.Length - 1));
+                MergeSort(vetor2, (vetor2.Length - 1), vetor2[0]);
+                MergeSort(vetor3, vetor3[0], (vetor2.Length - 1));
+                timer.Stop();
+                TimeSpan tempoMerge = timer.Elapsed;
+                Console.WriteLine("O tempo do Merge Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoMerge.Minutes, tempoMerge.Seconds, tempoMerge.Milliseconds);
+                timer.Reset();//reseta o contador
+            }
+            else if (quick = menu.KeyChar == '5')
+            {
+                vetor1 = new int[100000];
+                vetor2 = new int[100000];
+                vetor3 = new int[100000];
+                Preencher(vetor1, vetor2, vetor3);
+
+                timer.Start();
+                QuickSort(vetor1, vetor1[0], (vetor1.Length - 1));
+                QuickSort(vetor2, (vetor2.Length - 1), vetor2[0]);
+                QuickSort(vetor3, vetor3[0], (vetor3.Length - 1));
+                timer.Stop();
+
+                TimeSpan tempoQuick = timer.Elapsed;
+                double somaTempoQuick = (tempoQuick.TotalSeconds/1000) + tempoQuick.TotalMilliseconds + ((tempoQuick.TotalMinutes/60)/1000) ;
+                Console.WriteLine(somaTempoQuick);
+
+                Console.WriteLine("O tempo do Quick Sort foi:  {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoQuick.Minutes, tempoQuick.Seconds, tempoQuick.Milliseconds);
+                timer.Reset();//reseta o contador
+            }
+            else if (menu.KeyChar > 5)
+                Console.WriteLine("Insira um numero do menu por favor;");
+
+            Console.WriteLine("\n");
+            Console.Write("Deseja Sair?: (se Sim digite S)");
+            var finalizar = Console.ReadKey();
+            sair = finalizar.KeyChar == 'S' || finalizar.KeyChar == 's';
+            Console.WriteLine("\n");
+        } while(!sair);
 
         Console.ReadKey();
     }//fim do main
@@ -211,7 +261,8 @@ class TPordenação
             //Merge
             int[] leftArray = new int[meio - primeiroV + 1];
             int[] rightArray = new int[ultimoV - meio];
-
+            
+            //Copia os valores ordenados em left e right e faz um merge de novo
             Array.Copy(vetor, primeiroV, leftArray, 0, meio - primeiroV + 1);
             Array.Copy(vetor, meio + 1, rightArray, 0, ultimoV - meio);
 
@@ -268,6 +319,8 @@ class TPordenação
                 menor++;
             while (vetor[maior] > pivo)
                 maior--;
+            
+
             if (menor < maior)
             {
                 aux = vetor[menor];
