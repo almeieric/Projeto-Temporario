@@ -74,9 +74,13 @@ class TPordenação
                 bubbleSort(vetor3);
 
                 timer.Stop();//O comando Stop indica onde para de ler o tempo 
-
-
+                
                 TimeSpan tempoBubble = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
+
+                 
+                Console.WriteLine(tempoBubble.TotalMinutes);
+
+
                 Console.WriteLine("\nO tempo do Bubble Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoBubble.Minutes, tempoBubble.Seconds, tempoBubble.Milliseconds);
 
                 timer.Reset();//reseta o contador
@@ -94,6 +98,9 @@ class TPordenação
                 InsertionSort(vetor3);
                 timer.Stop();
                 TimeSpan tempoInsertion = timer.Elapsed;
+                
+                Console.WriteLine(tempoInsertion.TotalMinutes);
+
                 Console.WriteLine("O tempo do Insertion Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoInsertion.Minutes, tempoInsertion.Seconds, tempoInsertion.Milliseconds);
 
                 timer.Reset();
@@ -112,6 +119,10 @@ class TPordenação
                 SelectionSort(vetor3);
                 timer.Stop();
                 TimeSpan tempoSelection = timer.Elapsed;
+
+                
+                Console.WriteLine(tempoSelection.TotalMinutes);
+
                 Console.WriteLine("O tempo do Selection Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoSelection.Minutes , tempoSelection.Seconds, tempoSelection.Milliseconds);
 
                 timer.Reset();//reseta o contador
@@ -130,6 +141,9 @@ class TPordenação
                 MergeSort(vetor3, vetor3[0], (vetor2.Length - 1));
                 timer.Stop();
                 TimeSpan tempoMerge = timer.Elapsed;
+                
+                Console.WriteLine(tempoMerge.TotalMinutes);
+
                 Console.WriteLine("O tempo do Merge Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoMerge.Minutes, tempoMerge.Seconds, tempoMerge.Milliseconds);
                 timer.Reset();//reseta o contador
             }
@@ -147,8 +161,8 @@ class TPordenação
                 timer.Stop();
 
                 TimeSpan tempoQuick = timer.Elapsed;
-                double somaTempoQuick = (tempoQuick.TotalSeconds/1000) + tempoQuick.TotalMilliseconds + ((tempoQuick.TotalMinutes/60)/1000) ;
-                Console.WriteLine(somaTempoQuick);
+                
+                Console.WriteLine(tempoQuick.TotalMinutes);
 
                 Console.WriteLine("O tempo do Quick Sort foi:  {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoQuick.Minutes, tempoQuick.Seconds, tempoQuick.Milliseconds);
                 timer.Reset();//reseta o contador
