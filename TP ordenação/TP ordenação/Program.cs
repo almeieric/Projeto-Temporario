@@ -349,19 +349,26 @@ class TPordenação
     /// <param name="vetor">recebe o vetor que sera organizado</param>
     static int[] SelectionSort(int[] vetor)
     {
+
         int menor, i, j, aux;
         for (i = 0; i < vetor.Length - 1; i++)
         {
+            //estabelece o i como menor
             menor = i;
             for (j = i; j < vetor.Length; j++)
             {
+                //confere se ele é o menor vetor
                 if (vetor[j] < vetor[menor])
                     menor = j;
+                //armazena o meno em um temporario
                 aux = vetor[menor];
+                //colocar o vetor em seu lugar
                 vetor[menor] = vetor[i];
+                //colocar e tranforma o i em temporario
                 vetor[i] = aux;
             }
         }
+        //retorna o vetor ordenado
         return vetor;
     }
     
@@ -372,9 +379,10 @@ class TPordenação
     /// <returns></returns>
     public static int[] QuickSort(int[] vetor)
     {
+        //acha o inicio e o fim do vetor
         int inicio = 0;
         int fim = vetor.Length - 1;
-
+        //chama o outro o metodo que ira ordenar os vetores
         QuickSort(vetor, inicio, fim);
 
         return vetor;
