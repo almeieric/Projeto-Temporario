@@ -19,23 +19,51 @@ class TPordenação
             vetor1[i] = i+ 1 ;
 
         }
-        for (int i = vetor2.Length - 1; i >= 1; i--)//este for ira preencher o vetor de forma decrescente
+        for (int i = vetor2.Length-1; i >= 0; i--)//este for ira preencher o vetor de forma decrescente
         {
-            vetor2[i] = i+ 1;
+            vetor2[i] = i + 1;
 
         }
         
         for (int i = 0; i <= vetor3.Length - 1; i++)//este for ira preencher o vetor com numeros randomicos
         {
-            vetor3[i] = RandomNumber(0, 10000);
+            vetor3[i] = RandomNumber(0, 100000);
+
+        }
+    }
+    /// <summary>
+    /// Imprime os vetores na ordem que foram preenchidos ou ordenados dependendo de onde o codigo for chamado
+    /// </summary>
+    /// <param name="vetor1">recebe vetor 1</param>
+    /// <param name="vetor2">recebe vetor 2</param>
+    /// <param name="vetor3">recebe vetor 3</param>
+    static void Imprime(int[] vetor1, int[] vetor2, int[] vetor3)
+    {
+
+        for (int i = 0; i <= vetor1.Length - 1; i++)//este for ira preencher o vetor de forma crescente
+        {
+
+            Console.WriteLine(vetor1[i]);
+
+        }
+        for (int i = 0; i <= vetor2.Length - 1; i++)//este for ira preencher o vetor de forma decrescente
+        {
+            Console.WriteLine(vetor2[i]);
+
+        }
+
+        for (int i = 0; i <= vetor3.Length - 1; i++)//este for ira preencher o vetor com numeros randomicos
+        {
+            Console.WriteLine(vetor3[i]);
 
         }
     }
 
-       
     public static void Main()
     {
-        
+        Console.BackgroundColor = ConsoleColor.White;
+        Console.Clear();
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
         int[] vetor1;
         int[] vetor2;
         int[] vetor3;
@@ -49,7 +77,7 @@ class TPordenação
             "Menu [3] = SelectionSort\n" +
             "Menu [4] = MergeSort\n" +
             "Menu [5] = QuickSort\n" +
-            "Insira o numero para o menu:\n");
+            "Insira apenas numero no menu:\n");
             Stopwatch timer = new Stopwatch();// O comando Stopwatch conta o tempo que o programa levou para ler um metodo
 
             bool bubble = false;
@@ -68,21 +96,34 @@ class TPordenação
                 vetor3 = new int[100000];
                 Preencher(vetor1, vetor2, vetor3);
                                                                                     
-                timer.Start();//o comando Start começa a ler o tempo do comando
+                timer.Start();
                 bubbleSort(vetor1);
+                timer.Stop();
+                TimeSpan tempoBubble1 = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
+                timer.Reset();
+
+                timer.Start();
                 bubbleSort(vetor2);
+                timer.Stop();
+                TimeSpan tempoBubble2 = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
+                timer.Reset();
+
+                timer.Start();
                 bubbleSort(vetor3);
-
-                timer.Stop();//O comando Stop indica onde para de ler o tempo 
-                
-                TimeSpan tempoBubble = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
-
-                 
-                Console.WriteLine(tempoBubble.TotalMinutes);
+                timer.Stop();
+                TimeSpan tempoBubble3 = timer.Elapsed;//declara o tempo que levou para decorrer o bubblesort
+                timer.Reset();
 
 
-                Console.WriteLine("\nO tempo do Bubble Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoBubble.Minutes, tempoBubble.Seconds, tempoBubble.Milliseconds);
 
+
+
+               //Imprime(vetor1, vetor2, vetor3);//escreve o vetor ordenado
+
+
+                Console.WriteLine("\nO tempo do Bubble Sort no vetor 1 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoBubble1.Minutes, tempoBubble1.Seconds, tempoBubble1.Milliseconds);
+                Console.WriteLine("\nO tempo do Bubble Sort no vetor 2 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoBubble2.Minutes, tempoBubble2.Seconds, tempoBubble2.Milliseconds);
+                Console.WriteLine("\nO tempo do Bubble Sort no vetor 3 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoBubble3.Minutes, tempoBubble3.Seconds, tempoBubble3.Milliseconds);
                 timer.Reset();//reseta o contador
             }
             else if (insertion = menu.KeyChar == '2')
@@ -94,14 +135,31 @@ class TPordenação
 
                 timer.Start();
                 InsertionSort(vetor1);
+                timer.Stop();
+                TimeSpan tempoInsertion1 = timer.Elapsed;
+                timer.Reset();
+
+
+                timer.Start();
                 InsertionSort(vetor2);
+                timer.Stop();
+                TimeSpan tempoInsertion2 = timer.Elapsed;
+                timer.Reset();
+
+                timer.Start();
                 InsertionSort(vetor3);
                 timer.Stop();
-                TimeSpan tempoInsertion = timer.Elapsed;
-                
-                Console.WriteLine(tempoInsertion.TotalMinutes);
 
-                Console.WriteLine("O tempo do Insertion Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoInsertion.Minutes, tempoInsertion.Seconds, tempoInsertion.Milliseconds);
+                TimeSpan tempoInsertion3 = timer.Elapsed;
+
+                timer.Reset();
+
+                //Imprime(vetor1, vetor2, vetor3);//escreve o vetor ordenado
+                
+
+                Console.WriteLine("O tempo do Insertion Sort no vetor 1 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoInsertion1.Minutes, tempoInsertion1.Seconds, tempoInsertion1.Milliseconds);
+                Console.WriteLine("O tempo do Insertion Sort no vetor 2 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoInsertion2.Minutes, tempoInsertion2.Seconds, tempoInsertion2.Milliseconds);
+                Console.WriteLine("O tempo do Insertion Sort no vetor 3 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoInsertion3.Minutes, tempoInsertion3.Seconds, tempoInsertion3.Milliseconds);
 
                 timer.Reset();
             }
@@ -115,56 +173,101 @@ class TPordenação
 
                 timer.Start();
                 SelectionSort(vetor1);
+                timer.Stop();
+                TimeSpan tempoSelection1 = timer.Elapsed;
+                timer.Reset();
+
+                timer.Start();
                 SelectionSort(vetor2);
+                timer.Stop();
+                TimeSpan tempoSelection2 = timer.Elapsed;
+                timer.Reset();
+
+                timer.Start();
                 SelectionSort(vetor3);
                 timer.Stop();
-                TimeSpan tempoSelection = timer.Elapsed;
+                TimeSpan tempoSelection3 = timer.Elapsed;
+                timer.Reset();
 
-                
-                Console.WriteLine(tempoSelection.TotalMinutes);
 
-                Console.WriteLine("O tempo do Selection Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoSelection.Minutes , tempoSelection.Seconds, tempoSelection.Milliseconds);
+                //Imprime(vetor1, vetor2, vetor3);//escreve o vetor ordenado
+
+
+
+                Console.WriteLine("O tempo do Selection Sort no vetor 1 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoSelection1.Minutes , tempoSelection1.Seconds, tempoSelection1.Milliseconds);
+                Console.WriteLine("O tempo do Selection Sort no vetor 2 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoSelection2.Minutes, tempoSelection2.Seconds, tempoSelection2.Milliseconds);
+                Console.WriteLine("O tempo do Selection Sort no vetor 3 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoSelection3.Minutes, tempoSelection3.Seconds, tempoSelection3.Milliseconds);
 
                 timer.Reset();//reseta o contador
             }
             else if (merge = menu.KeyChar == '4')
             {
-
+                /*
                 vetor1 = new int[100000];
                 vetor2 = new int[100000];
                 vetor3 = new int[100000];
                 Preencher(vetor1, vetor2, vetor3);
 
                 timer.Start();
-                MergeSort(vetor1, vetor1[0], (vetor1.Length - 1));
-                MergeSort(vetor2, (vetor2.Length - 1), vetor2[0]);
-                MergeSort(vetor3, vetor3[0], (vetor2.Length - 1));
+                MergeSort(vetor1,vetor1[0],vetor1.Length-1);
                 timer.Stop();
-                TimeSpan tempoMerge = timer.Elapsed;
-                
-                Console.WriteLine(tempoMerge.TotalMinutes);
+                TimeSpan tempoMerge1 = timer.Elapsed;
+                timer.Reset();
 
-                Console.WriteLine("O tempo do Merge Sort foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoMerge.Minutes, tempoMerge.Seconds, tempoMerge.Milliseconds);
-                timer.Reset();//reseta o contador
+                timer.Start();
+                MergeSort(vetor2, vetor2[0], vetor2.Length-1);
+                timer.Stop();
+                TimeSpan tempoMerge2 = timer.Elapsed;
+                timer.Reset();
+
+                timer.Start();
+                MergeSort(vetor3, vetor3[0], vetor3.Length-1);
+                timer.Stop();
+                TimeSpan tempoMerge3 = timer.Elapsed;
+                timer.Reset();
+
+                Imprime(vetor1, vetor2, vetor3);//confere se o vetor esta ordenado
+
+               
+
+                Console.WriteLine("O tempo do Merge Sort no vetor 1 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoMerge1.Minutes, tempoMerge1.Seconds, tempoMerge1.Milliseconds);
+                Console.WriteLine("O tempo do Merge Sort no vetor 2 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoMerge2.Minutes, tempoMerge2.Seconds, tempoMerge2.Milliseconds);
+                Console.WriteLine("O tempo do Merge Sort no vetor 3 foi: {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoMerge3.Minutes, tempoMerge3.Seconds, tempoMerge3.Milliseconds);
+                timer.Reset();//reseta o contador*/
             }
             else if (quick = menu.KeyChar == '5')
             {
-                vetor1 = new int[100000];
-                vetor2 = new int[100000];
-                vetor3 = new int[100000];
+
+                vetor1 = new int[10000];
+                vetor2 = new int[10000];
+                vetor3 = new int[10000];
                 Preencher(vetor1, vetor2, vetor3);
+                
+                timer.Start();
+                QuickSort(vetor1);
+                timer.Stop();
+                TimeSpan tempoQuick1 = timer.Elapsed;
+                timer.Reset();//reseta o contador
 
                 timer.Start();
-                QuickSort(vetor1, vetor1[0], (vetor1.Length - 1));
-                QuickSort(vetor2, (vetor2.Length - 1), vetor2[0]);
-                QuickSort(vetor3, vetor3[0], (vetor3.Length - 1));
+                QuickSort(vetor2);
                 timer.Stop();
+                TimeSpan tempoQuick2 = timer.Elapsed;
+                timer.Reset();//reseta o contador
 
-                TimeSpan tempoQuick = timer.Elapsed;
-                
-                Console.WriteLine(tempoQuick.TotalMinutes);
+                timer.Start();
+                QuickSort(vetor3);
+                timer.Stop();
+                TimeSpan tempoQuick3 = timer.Elapsed;
 
-                Console.WriteLine("O tempo do Quick Sort foi:  {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoQuick.Minutes, tempoQuick.Seconds, tempoQuick.Milliseconds);
+
+                //Imprime(vetor1, vetor2, vetor3);//confere se o vetor esta ordenado
+
+                //Console.WriteLine(tempoQuick.TotalMinutes);
+
+                Console.WriteLine("O tempo do Quick Sort no vetor 1 foi:  {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoQuick1.Minutes, tempoQuick1.Seconds, tempoQuick1.Milliseconds);
+                Console.WriteLine("O tempo do Quick Sort no vetor 2 foi:  {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoQuick2.Minutes, tempoQuick2.Seconds, tempoQuick2.Milliseconds);
+                Console.WriteLine("O tempo do Quick Sort no vetor 3 foi:  {0} Minutos, {1} Segundo e {2} Milisegundos ", tempoQuick3.Minutes, tempoQuick3.Seconds, tempoQuick3.Milliseconds);
                 timer.Reset();//reseta o contador
             }
             else if (menu.KeyChar > 5)
@@ -197,165 +300,129 @@ class TPordenação
     /// </summary>
     ///<param name="vetor">recebe o vetor que sera organizado</param>
     
-    static void bubbleSort(int[] Vetor)
+    static int[] bubbleSort(int[] vetor)
     {
         int aux = 0;
 
-        for (int i = 0; i < Vetor.Length; i++)
+        for (int i = 0; i < vetor.Length; i++)
         {
-            for (int j = 0; j < Vetor.Length - 1; j++)
+            for (int j = 0; j < vetor.Length - 1; j++)
             {
-                if (Vetor[j] > Vetor[j + 1])//ira verificar o menor numero
+                if (vetor[j] > vetor[j + 1])//ira verificar o menor numero
                 {
-                    aux = Vetor[j + 1];//ira jogar o numero no auxiliar
-                    Vetor[j + 1] = Vetor[j];//ira colocar o numero no vetor
-                    Vetor[j] = aux;// colocara novo numero no auxiliar
+                    aux = vetor[j + 1];//ira jogar o numero no auxiliar
+                    vetor[j + 1] = vetor[j];//ira colocar o numero no vetor
+                    vetor[j] = aux;// colocara novo numero no auxiliar
                 }//fim do if
             }//fim do 2ºfor
         }//fim do 1ºfor
+        return vetor;
     }//fim do bubblesort
 
     /// <summary>
     /// Organiza cada vetor no metodo Insertion sort
     /// </summary>
     /// <param name="vetor">recebe o vetor que sera organizado</param>
-    static void InsertionSort(int[] vetor)
+    static int[] InsertionSort(int[] vetor)
     {
-        int n = vetor.Length;
-        for (int i = 1; i < n; ++i)
+        for (int i = 0; i < vetor.Length - 1; i++)
         {
-            int aux = vetor[i];
-            int j = i - 1;
+            int j = i + 1;
 
-
-            while (j >= 0 && vetor[j] > aux)
+            while (j > 0)
             {
-                vetor[j + 1] = vetor[j];
-                j = j - 1;
-            }//fim do while
-            vetor[j + 1] = aux;
-        }// fim do for
-    }//fim do insetion sort
+                if (vetor[j - 1] > vetor[j])
+                {
+                    int aux = vetor[j - 1];
+                    vetor[j - 1] = vetor[j];
+                    vetor[j] = aux;
 
+                }
+                j--;
+            }
+        }
+        return vetor;
+    }
     /// <summary>
     /// Organiza cada vetor no metodo Selection sort
     /// </summary>
     /// <param name="vetor">recebe o vetor que sera organizado</param>
-    static void SelectionSort(int[] Vetor)
+    static int[] SelectionSort(int[] vetor)
     {
         int menor, i, j, aux;
-        for (i = 0; i < Vetor.Length - 1; i++)
+        for (i = 0; i < vetor.Length - 1; i++)
         {
             menor = i;
-            for (j = i; j < Vetor.Length; j++)
+            for (j = i; j < vetor.Length; j++)
             {
-                if (Vetor[j] < Vetor[menor])
+                if (vetor[j] < vetor[menor])
                     menor = j;
-                aux = Vetor[menor];
-                Vetor[menor] = Vetor[i];
-                Vetor[i] = aux;
+                aux = vetor[menor];
+                vetor[menor] = vetor[i];
+                vetor[i] = aux;
             }
         }
+        return vetor;
+    }
+    
+    /// <summary>
+    /// Chama o metodo e separa o inicio e o fim do vetor
+    /// </summary>
+    /// <param name="vetor">recebe vetor</param>
+    /// <returns></returns>
+    public static int[] QuickSort(int[] vetor)
+    {
+        int inicio = 0;
+        int fim = vetor.Length - 1;
+
+        QuickSort(vetor, inicio, fim);
+
+        return vetor;
     }
     /// <summary>
-    /// Organiza cada vetor no metodo Merge sort
+    /// recebe o vetor com o inicio e o fim ja estabelecidos
     /// </summary>
-    /// <param name="vetor">recebe o vetor que sera organizado</param>
-    /// <param name="primeiroV">recebe a primeira posição do vetor</param>
-    /// <param name="ultimoV">recebe a ultima posição do vetor</param>
-    public static void MergeSort(int[] vetor, int primeiroV, int ultimoV)
+    /// <param name="vetor">recebe vetor</param>
+    /// <param name="inicio">estabelece o inicio do vetor</param>
+    /// <param name="fim">estabelece o fim do vetor</param>
+    private static void QuickSort(int[] vetor, int inicio, int fim)
     {
-        if (primeiroV < ultimoV)
+        if (inicio < fim)
         {
-            int meio = (primeiroV + ultimoV) / 2;
+            int p = vetor[inicio];
+            int i = inicio + 1;
+            int f = fim;
 
-            MergeSort(vetor, primeiroV, meio);
-            MergeSort(vetor, meio + 1, ultimoV);
-
-            //Merge
-            int[] leftArray = new int[meio - primeiroV + 1];
-            int[] rightArray = new int[ultimoV - meio];
-            
-            //Copia os valores ordenados em left e right e faz um merge de novo
-            Array.Copy(vetor, primeiroV, leftArray, 0, meio - primeiroV + 1);
-            Array.Copy(vetor, meio + 1, rightArray, 0, ultimoV - meio);
-
-            int i = 0;
-            int j = 0;
-            for (int k = primeiroV; k < ultimoV + 1; k++)
+            while (i <= f)
             {
-                if (i == leftArray.Length)
+                if (vetor[i] <= p)
                 {
-                    vetor[k] = rightArray[j];
-                    j++;
-                }
-                else if (j == rightArray.Length)
-                {
-                    vetor[k] = leftArray[i];
                     i++;
                 }
-                else if (leftArray[i] <= rightArray[j])
+                else if (p < vetor[f])
                 {
-                    vetor[k] = leftArray[i];
-                    i++;
+                    f--;
                 }
                 else
                 {
-                    vetor[k] = rightArray[j];
-                    j++;
-                }//fim do 2º if 
-            }//fim do for
-        }//fim do 1º if
-    }// fim do merge sort
-
-    /// <summary>
-    /// Organiza cada vetor no metodo Quick sort
-    /// </summary>
-    /// <param name="vetor">recebe o vetor que sera organizado</param>
-    /// <param name="primeiroV">recebe a primeira posição do vetor</param>
-    /// <param name="ultimoV">recebe a ultima posição do vetor</param>
-    static public void QuickSort(int[] vetor, int primeiroV, int ultimoV)
-    {
-        /*pivo vai definir o meio da pesquisa para organisação para que o metodo busque o numero e o reorganize
-         * por exmplo como temos 10 mil posições com numeros sequenciais o pivo vai ser 5mil
-         *enquanto o atributo meio vai pegar a posição 5mil mesmo que o valor dela não seja 5mil
-         */
-        int menor, maior, meio, pivo, aux;
-        menor = primeiroV;
-        maior = ultimoV;
-        meio = (int)((menor + maior) / 2);
-
-        pivo = vetor[meio];
-
-        while (menor <= maior)
-        {
-            while (vetor[menor] < pivo)
-                menor++;
-            while (vetor[maior] > pivo)
-                maior--;
-            
-
-            if (menor < maior)
-            {
-                aux = vetor[menor];
-                vetor[menor++] = vetor[maior];
-                vetor[maior--] = aux;
-            }
-            else
-            {
-                if (menor == maior)
-                {
-                    menor++;
-                    maior--;
+                    int troca = vetor[i];
+                    vetor[i] = vetor[f];
+                    vetor[f] = troca;
+                    i++;
+                    f--;
                 }
             }
-        }
 
-        if (maior > primeiroV)
-            QuickSort(vetor, primeiroV, maior);
-        if (menor < ultimoV)
-            QuickSort(vetor, menor, ultimoV);
+            vetor[inicio] = vetor[f];
+            vetor[f] = p;
+
+            QuickSort(vetor, inicio, f - 1);
+            QuickSort(vetor, f + 1, fim);
+        }
     }
+
+
+
 }
 
 
